@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.zerock.board.entity.Board;
 import org.zerock.board.entity.Reply;
 
+import java.util.Optional;
 import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,7 +17,7 @@ class ReplyRepositoryTest {
     @Autowired
     private ReplyRepository replyRepository;
 
-    @Test
+    /*@Test
     public void insertReply() {
 
         IntStream.rangeClosed(1,300).forEach(i -> {
@@ -34,5 +35,17 @@ class ReplyRepositoryTest {
             replyRepository.save(reply);
 
         });
+    }*/
+
+    @Test
+    public void readReply1() {
+
+        Optional<Reply> result = replyRepository.findById(1L);
+
+        Reply reply = result.get();
+
+        System.out.println(reply);
+        System.out.println(reply.getBoard());
+        System.out.println(reply.getBoard().getWriter());
     }
 }

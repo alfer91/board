@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.zerock.board.entity.Board;
 import org.zerock.board.entity.Member;
 
+import java.util.Optional;
 import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,7 +17,7 @@ class BoardRepositoryTest {
     @Autowired
     private BoardRepository boardRepository;
 
-    @Test
+    /*@Test
     public void insertBoard() {
 
         IntStream.rangeClosed(1,100).forEach(i -> {
@@ -31,5 +32,16 @@ class BoardRepositoryTest {
 
             boardRepository.save(board);
         });
+    }*/
+
+    @Test
+    public void testRead1() {
+
+        Optional<Board> result = boardRepository.findById(100L);
+
+        Board board = result.get();
+
+        System.out.println(board);
+        System.out.println(board.getWriter());
     }
 }
