@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.zerock.board.entity.Board;
 import org.zerock.board.entity.Member;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -34,6 +35,7 @@ class BoardRepositoryTest {
         });
     }*/
 
+    @Transactional
     @Test
     public void testRead1() {
 
