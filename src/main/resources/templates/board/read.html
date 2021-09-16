@@ -8,8 +8,8 @@
     <h1 class="mt-4">GuestBook Read Page</h1>
 
     <div class="form-group">
-      <label>Gno</label>
-      <input type="text" class="form-control" name="gno" th:value="${dto.gno}" readonly>
+      <label>bno</label>
+      <input type="text" class="form-control" name="bno" th:value="${dto.bno}" readonly>
     </div>
 
     <div class="form-group">
@@ -24,7 +24,7 @@
 
     <div class="form-group">
       <label>Writer</label>
-      <input type="text" class="form-control" name="writer" th:value="${dto.writer}" readonly>
+      <input type="text" class="form-control" name="writerName" th:value="${dto.writerName}" readonly>
     </div>
 
     <div class="form-group">
@@ -37,14 +37,14 @@
       <input type="text" class="form-control" name="modDate" th:value="${#temporals.format(dto.modDate, 'yyyy/MM/dd HH:mm:ss')}" readonly>
     </div>
 
-    <a th:href="@{/guestbook/modify(gno = ${dto.gno},
+    <a th:href="@{/board/modify(bno = ${dto.bno},
       page = ${requestDTO.page},
       type = ${requestDTO.type},
       keyword = ${requestDTO.keyword})}">
       <button type="button" class="btn btn-primary">Modify</button>
     </a>
 
-    <a th:href="@{/guestbook/list(page = ${requestDTO.page},
+    <a th:href="@{/board/list(page = ${requestDTO.page},
       type = ${requestDTO.type},
       keyword = ${requestDTO.keyword})}">
       <button type="button" class="btn btn-info">List</button>
